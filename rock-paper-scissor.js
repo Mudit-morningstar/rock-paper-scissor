@@ -17,7 +17,7 @@ const game = (() => {
     }
 
     if(winCounter >= 3) {
-        console.log("Congratulations!!, You've won the game")
+        console.log("Congratulations!!, You've won the game. Refresh the tab to play again")
     } else {
         console.log("Sad!! You've lost the game. Refresh the tab to try again")
     }
