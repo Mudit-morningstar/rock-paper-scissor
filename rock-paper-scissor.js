@@ -27,7 +27,7 @@ const game = (() => {
 const choices = ["rock", "paper", "scissor"];
 
 
-const win = "Wohoo!! You Won";
+const win = "Woho!! You Won";
 const lose = "Oh Ho!! You lost";
 const tie = "Hey!! It's a tie";
 
