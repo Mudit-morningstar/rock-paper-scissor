@@ -59,9 +59,9 @@ scissorBtn.addEventListener('click',()=> {
 const choices = ["rock", "paper", "scissor"];
 
 
-const win = "Woho!! You Won";
-const lose = "Oh Ho!! You lost";
-const tie = "Hey!! It's a tie";
+const win = "You Won";
+const lose = "You lose";
+const tie = "It's a tie";
 let user_win = 0;
 let computer_win = 0;
 
@@ -74,29 +74,30 @@ const playRound = ((userChoice, computerChoice) => {
     userSelectionClean = userChoice.toLowerCase().trim();
 
     if(user_win >= 5){
-        resultPara.textContent = "You Won"
+        resultPara.textContent = "Wohooo!!! You Won"
         return 
     } else if(computer_win >= 5) {
-        resultPara.textContent = "You Lose";
+        resultPara.textContent = "Oh Ho!! You Lost";
         return
     }
 
     if(userSelectionClean === "rock") {
         if(computerChoice === "rock") {
-            console.log(tie);
             para.textContent = user_win;
+            resultPara.textContent = tie
             return tie;
         }
         else if(computerChoice === "paper"){
-            console.log(lose);
             computer_win++;
             para.textContent = user_win;
+            resultPara.textContent = lose
             return lose;
             
         } else {
             console.log(win);
             user_win++;
             para.textContent = user_win;
+            resultPara.textContent = win
             return win;
             
         }
@@ -104,31 +105,37 @@ const playRound = ((userChoice, computerChoice) => {
         if(computerChoice === "rock"){
             user_win++;
             para.textContent = user_win;
+            resultPara.textContent = win
             return win;
             
         }
         else if(computerChoice === "paper"){
             para.textContent = user_win;
+            resultPara.textContent = tie
             return tie;
         } else {
             computer_win++;
             para.textContent = user_win;
+            resultPara.textContent = lose
             return lose;
             
         }
     } else if(userSelectionClean === "scissor") {
         if(computerChoice === "rock"){
             para.textContent = user_win;
+            resultPara.textContent = lose
             return lose;
         }
         else if(computerChoice === "paper"){
             user_win++;
             para.textContent = user_win;
+            resultPara.textContent = win
             return win;
             
         } else {
             computer_win++;
             para.textContent = user_win;
+            resultPara.textContent = tie
             return tie;
         }
     } else {
