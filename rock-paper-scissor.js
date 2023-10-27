@@ -1,22 +1,31 @@
 const rockBtn = document.querySelector(".rock");
 const paperBtn = document.querySelector('.paper');
 const scissorBtn = document.querySelector('.scissor');
-const para = document.createElement('p');
+const score = document.querySelector(".score");
+const result = document.querySelector(".result");
+const para = document.createElement("p");
+const resultPara = document.createElement("p");
 
 
-rockBtn?.addEventListener('click',()=> {
+rockBtn.addEventListener('click', ()=> {
     let computerSelection = getComputerChoice();
     playRound("rock", computerSelection);
+    score.append(para);
+    result.append(resultPara)
 });
 
-paperBtn?.addEventListener('click',()=> {
+paperBtn.addEventListener('click',()=> {
     let computerSelection = getComputerChoice();
     playRound("paper", computerSelection);
+    score.append(para);
+    result.append(resultPara)
 })
 
-scissorBtn?.addEventListener('click',()=> {
+scissorBtn.addEventListener('click',()=> {
     let computerSelection = getComputerChoice();
     playRound("scissor", computerSelection);
+    score.append(para);
+    result.append(resultPara)
 })
 
 
@@ -64,46 +73,69 @@ const getComputerChoice = (() => {
 const playRound = ((userChoice, computerChoice) => {
     userSelectionClean = userChoice.toLowerCase().trim();
 
-    if(user_win > 5){
-        
+    if(user_win >= 5){
+        resultPara.textContent = "You Won"
+        return 
+    } else if(computer_win >= 5) {
+        resultPara.textContent = "You Lose";
+        return
     }
 
     if(userSelectionClean === "rock") {
-        if(computerChoice === "rock"){
+        if(computerChoice === "rock") {
+            console.log(tie);
+            para.textContent = user_win;
             return tie;
         }
         else if(computerChoice === "paper"){
-            return lose;
+            console.log(lose);
             computer_win++;
+            para.textContent = user_win;
+            return lose;
+            
         } else {
-            return win;
+            console.log(win);
             user_win++;
+            para.textContent = user_win;
+            return win;
+            
         }
     } else if(userSelectionClean === "paper") {
         if(computerChoice === "rock"){
-            return win;
             user_win++;
+            para.textContent = user_win;
+            return win;
+            
         }
         else if(computerChoice === "paper"){
+            para.textContent = user_win;
             return tie;
         } else {
-            return lose;
             computer_win++;
+            para.textContent = user_win;
+            return lose;
+            
         }
     } else if(userSelectionClean === "scissor") {
         if(computerChoice === "rock"){
+            para.textContent = user_win;
             return lose;
         }
         else if(computerChoice === "paper"){
-            return win;
             user_win++;
+            para.textContent = user_win;
+            return win;
+            
         } else {
-            return tie;
             computer_win++;
+            para.textContent = user_win;
+            return tie;
         }
     } else {
+        para.textContent = user_win;
         return "Please select out of rock paper and scissor"
     }
+    
 })
 
 
