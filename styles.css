@@ -1,0 +1,15 @@
+body {
+    background-color: beige;
+    text-align: center;
+    padding: 40px;
+}
+
+button {
+    padding: 8px 20px;
+}
+
+.score {
+    margin-top: 40px;
+    font-size: 16px;
+    
+}
