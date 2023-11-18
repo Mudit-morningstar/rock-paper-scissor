@@ -7,4 +7,4 @@ Future Work:-
 Add a retry button which will refresh the page.
 Add a interactive UI and make it more intuitive and fun to play.
 
-Tech Stack: Vanilla Js
+Tech Stack: Vanilla Js, CSS and DOM Manipulation
